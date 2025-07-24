@@ -1,0 +1,3 @@
+<?php
+// Mark as paid
+?>

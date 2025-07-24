@@ -1,0 +1,3 @@
+<?php
+// Add loan form
+?>
