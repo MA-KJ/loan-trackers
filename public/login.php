@@ -17,26 +17,53 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $error = "Invalid username or password.";
     }
 }
+
+$pageTitle = 'Login';
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <title><?= htmlspecialchars($pageTitle) ?></title>
+    <link rel="stylesheet" href="/loan-tracker/public/assets/css/style.css">
 </head>
 
 <body>
-    <h2>Login</h2>
-    <?php if ($error): ?>
-        <p style="color: red;"><?= htmlspecialchars($error) ?></p>
-    <?php endif; ?>
-    <form method="post">
-        <label>Username: <input type="text" name="username" required></label><br>
-        <label>Password: <input type="password" name="password" required></label><br>
-        <button type="submit">Login</button>
-    </form>
+
+    <header>
+        <h2>Loan Tracker</h2>
+        <nav>
+            <a href="/loan-tracker/public/login.php">🔐 Login</a>
+        </nav>
+    </header>
+
+    <main>
+        <section style="max-width: 400px; margin: 40px auto; padding: 20px; background: white; border-radius: 8px;">
+            <h3 style="text-align: center;">🔐 Admin Login</h3>
+
+            <?php if ($error): ?>
+                <p style="color: red; text-align: center;"><?= htmlspecialchars($error) ?></p>
+            <?php endif; ?>
+
+            <form method="post">
+                <label>Username:</label>
+                <input type="text" name="username" required style="width: 100%; padding: 8px;"><br><br>
+
+                <label>Password:</label>
+                <input type="password" name="password" required style="width: 100%; padding: 8px;"><br><br>
+
+                <button type="submit" style="width: 100%; padding: 10px; background: #0066cc; color: white; border: none; border-radius: 4px;">
+                    Login
+                </button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; <?= date('Y') ?> Loan Tracker System</p>
+    </footer>
+
 </body>
 
 </html>

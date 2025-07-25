@@ -43,10 +43,11 @@ include __DIR__ . '/../layout/header.php';
                 <td><?= $loan['status'] ?></td>
                 <td>
                     <?php if ($loan['status'] === 'Unpaid'): ?>
-                        <a href="/loan-tracker/public/mark_paid.php?id=<?= $loan['loan_id'] ?>" onclick="return confirm('Mark as paid?')">✅</a>
+                        <a href="/loan-tracker/public/mark_paid.php?id=<?= $loan['loan_id'] ?>" onclick="return confirm('Mark as paid?')">✅ Mark as paid</a>
                     <?php endif; ?>
-                    <a href="/public/edit_loan.php?id=<?= $loan['loan_id'] ?>">✏️</a>
-                    <a href="/public/delete_loan.php?id=<?= $loan['loan_id'] ?>" onclick="return confirm('Delete this loan?')">🗑️</a>
+                    <a href="/loan-tracker/public/edit_loan.php?id=<?= $loan['loan_id'] ?>">✏️ Edit</a>
+                    <a href="/loan-tracker/public/delete_loan.php?id=<?= $loan['loan_id'] ?>" onclick="return confirm('Are you sure?')"> 🗑️ Delete</a>
+
                 </td>
             </tr>
         <?php endforeach; ?>
